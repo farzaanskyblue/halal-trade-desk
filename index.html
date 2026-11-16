@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Halal Trade Desk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: a morning briefing sheet. Market note on top, search, then one fold-out row per stock with the order ticket inside. */
+:root{
+  --paper:#f3f5f2; --card:#ffffff; --ink:#16211d; --muted:#5c6b65; --line:#d5dcd7;
+  --accent:#0b6b5a; --accent-soft:#e0efeb;
+  --good:#1c7a45; --warn:#9a6200; --bad:#b3362b; --warn-soft:#fbf0d9; --bad-soft:#f8e4e1;
+  --font-display:"IBM Plex Sans Condensed","Arial Narrow",Arial,sans-serif;
+  --font-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-num:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --paper:#111715; --card:#1a2320; --ink:#e7eeea; --muted:#9aaaa3; --line:#2d3a35;
+    --accent:#4fc3ab; --accent-soft:#17332d;
+    --good:#5fcf8c; --warn:#e3b04f; --bad:#f0837a; --warn-soft:#33290f; --bad-soft:#3a1d1a;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --paper:#111715; --card:#1a2320; --ink:#e7eeea; --muted:#9aaaa3; --line:#2d3a35;
+  --accent:#4fc3ab; --accent-soft:#17332d;
+  --good:#5fcf8c; --warn:#e3b04f; --bad:#f0837a; --warn-soft:#33290f; --bad-soft:#3a1d1a;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:15px;line-height:1.45}
+.wrap{max-width:880px;margin:0 auto;padding:20px 16px 56px;display:flex;flex-direction:column;gap:16px}
+h1{font-family:var(--font-display);font-weight:600;font-size:28px;line-height:1.1;margin:0}
+h2{font-family:var(--font-display);font-weight:600;font-size:19px;margin:0;text-wrap:balance}
+h3{font-size:13px;font-weight:600;margin:0;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+p{margin:0}
+a{color:var(--accent)}
+.sub{color:var(--muted);font-size:13px;max-width:68ch}
+.num{font-family:var(--font-num);font-variant-numeric:tabular-nums}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.mood{border-left:5px solid var(--warn)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+label.f{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--muted)}
+input{font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:9px 10px;width:100%;min-width:0}
+input[type=number]{font-family:var(--font-num)}
+input:focus-visible,button:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+button{font:inherit;font-size:13px;color:var(--accent);background:transparent;border:1px solid var(--accent);border-radius:999px;padding:6px 12px;cursor:pointer}
+button.on{background:var(--accent);color:var(--card)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px;font-size:14px;max-width:70ch}
+.list{display:flex;flex-direction:column;gap:8px}
+details.s{background:var(--card);border:1px solid var(--line);border-radius:10px;border-left:5px solid var(--line)}
+details.s.buy{border-left-color:var(--good)}
+details.s.wait{border-left-color:var(--warn)}
+details.s.hold{border-left-color:var(--muted)}
+summary{list-style:none;cursor:pointer;padding:12px 14px;display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:center}
+summary::-webkit-details-marker{display:none}
+.tk{font-family:var(--font-display);font-weight:600;font-size:19px}
+.nm{color:var(--muted);font-size:13px}
+.px{font-family:var(--font-num);font-size:16px;text-align:right}
+.chg{font-family:var(--font-num);font-size:12px;text-align:right}
+.line2{grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.pill{font-size:12px;border-radius:999px;padding:2px 9px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.pill.buy{background:var(--accent-soft);color:var(--good);border-color:transparent;font-weight:600}
+.pill.wait{background:var(--warn-soft);color:var(--warn);border-color:transparent;font-weight:600}
+.pill.hold{background:var(--bad-soft);color:var(--bad);border-color:transparent;font-weight:600}
+.pill.ok{background:var(--accent-soft);color:var(--accent);border-color:transparent}
+.pill.w{background:var(--warn-soft);color:var(--warn);border-color:transparent}
+.sumline{grid-column:1 / -1;font-size:14px}
+.body{padding:0 14px 14px;display:flex;flex-direction:column;gap:12px;border-top:1px solid var(--line);padding-top:12px}
+.todo{background:var(--accent-soft);border-radius:8px;padding:9px 11px;font-size:14px}
+.plan{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:8px}
+.cell{border:1px solid var(--line);border-radius:8px;padding:8px 10px}
+.cell .k{font-size:12px;color:var(--muted)}
+.cell .v{font-family:var(--font-num);font-size:15px;font-weight:500}
+.cell .x{font-size:12px;color:var(--muted)}
+.good{color:var(--good)}.bad{color:var(--bad)}
+.facts{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--muted)}
+.facts b{color:var(--ink);font-family:var(--font-num);font-weight:500}
+.links{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:14px}
+.note{font-size:13px;color:var(--warn);background:var(--warn-soft);border-radius:8px;padding:8px 10px}
+dl{margin:0;display:grid;grid-template-columns:1fr;gap:8px;font-size:14px;max-width:70ch}
+dt{font-weight:600}
+dd{margin:0;color:var(--muted)}
+.foot{font-size:12px;color:var(--muted);max-width:72ch}
+.row{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:baseline;justify-content:space-between}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header style="display:flex;flex-direction:column;gap:4px">
+    <div class="row"><h1>Halal Trade Desk</h1><span class="sub" id="stamp">Loading…</span></div>
+    <p class="sub">Halal-screened stocks with a plain-English read on each one: buy zone, wait, or hold off, and exactly what to enter in Wealthsimple.</p>
+  </header>
+
+  <section class="panel mood" id="market" aria-label="Market today"></section>
+
+  <section class="panel" aria-label="Search">
+    <label class="f" for="q">Search a stock by name, ticker or sector<input id="q" type="search" placeholder="Try Alphabet, MSFT or health" autocomplete="off"></label>
+    <div class="chips" id="chips">
+      <button type="button" data-f="all" class="on">All</button>
+      <button type="button" data-f="buy">Buy zone</button>
+      <button type="button" data-f="wait">Wait</button>
+      <button type="button" data-f="hold">Hold off</button>
+    </div>
+    <div id="lookup"></div>
+  </section>
+
+  <section class="list" id="list" aria-label="Stocks"></section>
+
+  <details class="panel" id="settingsBox">
+    <summary style="padding:0;display:block"><h2>Your settings</h2></summary>
+    <div class="grid" style="margin-top:10px">
+      <label class="f" for="acct">Account size (CAD)<input id="acct" type="number" inputmode="decimal" step="100"></label>
+      <label class="f" for="riskPct">Risk per trade (%)<input id="riskPct" type="number" inputmode="decimal" step="0.1"></label>
+      <label class="f" for="maxPos">Most in one stock (%)<input id="maxPos" type="number" inputmode="decimal" step="1"></label>
+      <label class="f" for="rr">Profit target (x the risk)<input id="rr" type="number" inputmode="decimal" step="0.5"></label>
+      <label class="f" for="fx">1 USD in CAD<input id="fx" type="number" inputmode="decimal" step="0.01"></label>
+      <label class="f" for="fee">Currency fee each way (%)<input id="fee" type="number" inputmode="decimal" step="0.1"></label>
+    </div>
+    <label class="f" for="key" style="margin-top:10px">Finnhub key for live prices (optional)<input id="key" type="text" autocomplete="off" placeholder="Paste your free key from finnhub.io"></label>
+    <p class="sub" style="margin-top:8px">Settings and the key are saved only in this browser. Without a key, the page shows the last closing prices from the morning update.</p>
+  </details>
+
+  <section class="panel" aria-label="What the words mean">
+    <h2>What the words mean</h2>
+    <dl>
+      <div><dt>Buy zone, Wait, Hold off</dt><dd>Buy zone means the price, trend and news line up well enough to start a small position. Wait means something is about to happen, usually earnings, so let it pass first. Hold off means the price is too high or the stock is too jumpy right now.</dd></div>
+      <div><dt>52-week high</dt><dd>The highest price in the past year. A stock far below it has room to recover, but it fell for a reason.</dd></div>
+      <div><dt>Price to earnings (P/E)</dt><dd>The share price divided by a year of profit per share. Lower usually means cheaper. Around 15 to 25 is ordinary for big companies.</dd></div>
+      <div><dt>Beta</dt><dd>How jumpy the stock is next to the whole market. 1 means it moves the same. 2 means it moves about twice as much.</dd></div>
+      <div><dt>Earnings</dt><dd>The quarterly report card. Stocks often jump or drop 5% to 15% overnight on it, which can skip right past a stop.</dd></div>
+      <div><dt>Limit buy</dt><dd>An order that buys only at your price or lower.</dd></div>
+      <div><dt>Stop-limit sell</dt><dd>Your safety net. If the price falls to the stop, it sells for you, as long as it can get at least the limit price.</dd></div>
+      <div><dt>Profit limit sell</dt><dd>An order that sells for you when the price reaches your target.</dd></div>
+      <div><dt>Analysts' target</dt><dd>The average price Wall Street analysts expect in a year. It is an opinion and is often too rosy.</dd></div>
+    </dl>
+  </section>
+
+  <p class="foot" id="foot"></p>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var KEY = "halal-trade-desk-v1";
+  var DEF = {acct:10000, riskPct:1, maxPos:20, rr:2, fx:1.42, fee:1.5, key:""};
+  var S = loadSet(), DATA = null, live = {}, filter = "all", open = {}, extra = null;
+  var LABEL = {buy:"Buy zone", wait:"Wait", hold:"Hold off"};
+
+  function loadSet(){
+    var s = Object.assign({}, DEF);
+    try{ var r = window.localStorage.getItem(KEY); if(r){ s = Object.assign(s, JSON.parse(r)); } }catch(e){}
+    return s;
+  }
+  function saveSet(){ try{ window.localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} }
+  function $(id){ return document.getElementById(id); }
+  function esc(s){ return String(s == null ? "" : s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+  function num(v, d){ var x = parseFloat(v); return isFinite(x) ? x : d; }
+  function money(x){ return "$" + x.toLocaleString("en-CA",{minimumFractionDigits:2, maximumFractionDigits:2}); }
+  function cad(x){ return "$" + Math.abs(Math.round(x)).toLocaleString("en-CA"); }
+  function pct(x){ return (Math.round(x*10)/10).toFixed(1) + "%"; }
+  function daysTo(iso){ if(!iso) return null; return Math.round((new Date(iso+"T12:00:00").getTime() - Date.now())/86400000); }
+
+  function calc(s){
+    var lv = live[s.t];
+    var price = lv ? lv.c : s.price;
+    var isCad = s.cur === "CAD";
+    var fx = isCad ? 1 : S.fx, fee = isCad ? 0 : S.fee;
+    var below = s.high52 ? Math.max(0, (s.high52 - price)/s.high52) : 0;
+    var d = daysTo(s.earn), soon = d != null && d >= 0 && d <= 10;
+    var riskLocal = S.acct * (S.riskPct/100) / fx;
+    var perShare = price * s.stop/100;
+    var cap = Math.floor((S.acct * S.maxPos/100) / fx / price);
+    var shares = Math.max(0, Math.min(Math.floor(riskLocal/perShare), cap));
+    var stopPx = price*(1 - s.stop/100), target = price*(1 + s.stop/100*S.rr);
+    var costCad = shares*price*fx, feeCad = costCad*(fee/100)*2;
+    return {s:s, price:price, live:!!lv, chg:lv ? lv.dp : null, below:below, days:d, soon:soon, shares:shares, cap:cap,
+      perShareCad:perShare*fx, stopPx:stopPx, limPx:stopPx*0.99, target:target, costCad:costCad, feeCad:feeCad,
+      loss:shares*perShare*fx + feeCad, gain:shares*perShare*S.rr*fx - feeCad, isCad:isCad};
+  }
+
+  function renderMarket(){
+    var m = DATA.market;
+    $("market").innerHTML = '<div class="row"><h2>Market today</h2><span class="pill w">' + esc(m.mood) + "</span></div>" +
+      "<p><b>" + esc(m.headline) + "</b></p><ul>" + m.points.map(function(p){ return "<li>" + esc(p) + "</li>"; }).join("") + "</ul>" +
+      '<p class="todo"><b>This week:</b> ' + esc(m.plan) + "</p>";
+    var dt = new Date(DATA.updated);
+    $("stamp").textContent = "Analysis updated " + dt.toLocaleString("en-CA",{month:"short", day:"numeric", hour:"numeric", minute:"2-digit"});
+    $("foot").textContent = "Sources: " + DATA.sources.join(". ") + ". " + DATA.updatedNote +
+      " This site is a planning aid built on set rules and published news. It is not financial advice or a religious ruling, and it cannot predict prices. You make the call.";
+  }
+
+  function card(c){
+    var s = c.s, u = s.cur === "CAD" ? " CAD" : " US";
+    var pills = '<span class="pill ' + s.signal + '">' + LABEL[s.signal] + "</span>" +
+      '<span class="pill ' + (s.halal === 3 ? "ok" : s.halal === 1 ? "w" : "") + '">' + esc(s.halalNote) + "</span>" +
+      (s.high52 ? '<span class="pill">' + pct(c.below*100) + " below high</span>" : "") +
+      (c.soon ? '<span class="pill w">' + esc(s.earnNote || ("Earnings in " + c.days + "d")) + "</span>" : "");
+    var chg = c.live && c.chg != null ? '<div class="chg ' + (c.chg >= 0 ? "good" : "bad") + '">' + (c.chg >= 0 ? "+" : "") + c.chg.toFixed(2) + "% today</div>"
+      : '<div class="chg" style="color:var(--muted)">close ' + esc(s.asOf) + "</div>";
+    var buy = c.shares < 1
+      ? '<div class="cell"><div class="k">Buy</div><div class="v">0 shares</div><div class="x">' + (c.cap < 1 ? "One share is over your limit for one stock" : "One share risks " + cad(c.perShareCad) + ", over your limit") + "</div></div>"
+      : '<div class="cell"><div class="k">Buy (limit order)</div><div class="v">' + c.shares + " share" + (c.shares === 1 ? "" : "s") + '</div><div class="x">about ' + cad(c.costCad) + " CAD</div></div>";
+    var chart = s.chartUrl || ("https://www.tradingview.com/chart/?symbol=" + encodeURIComponent(s.t));
+    var halalUrl = "https://musaffa.com/" + (s.kind === "Fund" ? "etf" : "stock") + "/" + encodeURIComponent(s.t) + "/";
+    return '<details class="s ' + s.signal + '" data-t="' + esc(s.t) + '"' + (open[s.t] ? " open" : "") + ">" +
+      "<summary><div><span class=\"tk\">" + esc(s.t) + '</span> <span class="nm">' + esc(s.n) + "</span></div>" +
+      '<div><div class="px">' + money(c.price) + "</div>" + chg + "</div>" +
+      '<div class="line2">' + pills + "</div>" +
+      '<div class="sumline">' + esc(s.sum) + "</div></summary>" +
+      '<div class="body">' +
+        '<p class="todo"><b>What to do:</b> ' + esc(s.todo) + "</p>" +
+        "<div><h3>Why</h3><ul>" + s.why.map(function(w){ return "<li>" + esc(w) + "</li>"; }).join("") + "</ul></div>" +
+        "<div><h3>Watch out</h3><ul>" + s.risk.map(function(w){ return "<li>" + esc(w) + "</li>"; }).join("") + "</ul></div>" +
+        '<div><h3>Order ticket for your account</h3><div class="plan" style="margin-top:6px">' + buy +
+          '<div class="cell"><div class="k">Stop-limit sell</div><div class="v bad">' + money(c.stopPx) + '</div><div class="x">limit ' + money(c.limPx) + " · " + s.stop + "% down</div></div>" +
+          '<div class="cell"><div class="k">Profit limit sell</div><div class="v good">' + money(c.target) + '</div><div class="x">' + pct(s.stop*S.rr) + " up</div></div>" +
+          '<div class="cell"><div class="k">Most you lose</div><div class="v bad">-' + cad(c.loss) + '</div><div class="x">fees included</div></div>' +
+          '<div class="cell"><div class="k">Gain at target</div><div class="v good">+' + cad(c.gain) + '</div><div class="x">fees included</div></div>' +
+        "</div>" + (s.signal !== "buy" ? '<p class="sub" style="margin-top:6px">These numbers are for reference. The read on this one is ' + LABEL[s.signal].toLowerCase() + ".</p>" : "") + "</div>" +
+        '<div class="facts"><span>Sector <b>' + esc(s.sector) + "</b></span>" +
+          (s.low52 ? "<span>52-week range <b>" + money(s.low52) + " to " + money(s.high52) + "</b></span>" : "") +
+          (s.pe ? "<span>P/E <b>" + s.pe + "</b></span>" : "") + (s.beta != null ? "<span>Beta <b>" + s.beta + "</b></span>" : "") +
+          (s.target ? "<span>Analysts' target <b>" + money(s.target) + "</b></span>" : "") + "<span>Prices in <b>" + u.trim() + "</b></span></div>" +
+        '<div class="links"><a href="' + esc(chart) + '" target="_blank" rel="noopener">Live chart</a>' +
+          '<a href="' + esc(halalUrl) + '" target="_blank" rel="noopener">Halal check</a>' +
+          '<a href="https://my.wealthsimple.com/" target="_blank" rel="noopener">Open Wealthsimple</a></div>' +
+      "</div></details>";
+  }
+
+  function renderList(){
+    if(!DATA) return;
+    var q = $("q").value.trim().toLowerCase();
+    var rank = {buy:0, wait:1, hold:2};
+    var rows = DATA.stocks.filter(function(s){
+      if(filter !== "all" && s.signal !== filter) return false;
+      if(!q) return true;
+      return (s.t + " " + s.n + " " + s.sector).toLowerCase().indexOf(q) >= 0;
+    }).sort(function(a,b){ return rank[a.signal] - rank[b.signal]; });
+    $("list").innerHTML = rows.map(function(s){ return card(calc(s)); }).join("") ||
+      '<p class="sub">No match in the list.</p>';
+    var lk = $("lookup");
+    if(q && !rows.length && /^[a-z.\-]{1,6}$/.test(q)){
+      var T = q.toUpperCase();
+      lk.innerHTML = S.key
+        ? '<button type="button" id="doLookup" data-t="' + esc(T) + '">Look up ' + esc(T) + " (numbers only)</button>"
+        : '<p class="sub">' + esc(T) + " is not on the list yet. Ask Claude to add it for a full write-up, or add a Finnhub key in Settings for a quick numbers-only read.</p>";
+    } else if(!extra){ lk.innerHTML = ""; }
+    if(extra) lk.innerHTML = extra;
+  }
+
+  function quote(t){
+    return fetch("https://finnhub.io/api/v1/quote?symbol=" + encodeURIComponent(t) + "&token=" + encodeURIComponent(S.key))
+      .then(function(r){ if(!r.ok) throw new Error("HTTP " + r.status); return r.json(); });
+  }
+  function loadLive(){
+    if(!S.key || !DATA) return;
+    var list = DATA.stocks.filter(function(s){ return s.cur !== "CAD"; });
+    var i = 0, fails = 0;
+    (function next(){
+      if(i >= list.length){ renderList(); return; }
+      var s = list[i++];
+      quote(s.t).then(function(j){ if(j && j.c > 0) live[s.t] = {c:j.c, dp:j.dp}; })
+        .catch(function(){ fails++; })
+        .then(function(){ if(fails >= 3){ renderList(); return; } setTimeout(next, 120); });
+    })();
+  }
+  function lookup(T){
+    extra = '<p class="sub">Looking up ' + esc(T) + "…</p>"; renderList();
+    Promise.all([quote(T), fetch("https://finnhub.io/api/v1/stock/metric?symbol=" + encodeURIComponent(T) + "&metric=all&token=" + encodeURIComponent(S.key)).then(function(r){ return r.json(); }).catch(function(){ return {}; })])
+    .then(function(res){
+      var j = res[0], m = (res[1] && res[1].metric) || {};
+      if(!j || !(j.c > 0)) throw new Error("none");
+      var hi = m["52WeekHigh"], lo = m["52WeekLow"], below = hi ? (hi - j.c)/hi*100 : null;
+      var read = below == null ? "No range data came back." : below >= 25 ? "Well below its high. There may be room to recover, but find out why it fell." : below >= 10 ? "A moderate discount to its high." : "Close to its high, so little discount.";
+      extra = '<div class="panel" style="border-left:5px solid var(--line)"><div class="row"><h2>' + esc(T) + '</h2><span class="num">' + money(j.c) + " (" + (j.dp >= 0 ? "+" : "") + (j.dp || 0).toFixed(2) + "% today)</span></div>" +
+        '<div class="facts">' + (hi ? "<span>52-week range <b>" + money(lo) + " to " + money(hi) + "</b></span><span>Below high <b>" + pct(below) + "</b></span>" : "") + (m.beta ? "<span>Beta <b>" + m.beta.toFixed(2) + "</b></span>" : "") + "</div>" +
+        "<p>" + esc(read) + "</p>" +
+        '<p class="note">Numbers only. No news, earnings or halal check has been done on this one. Check it on Musaffa or Zoya, and ask Claude for the full write-up before buying.</p></div>';
+      renderList();
+    }).catch(function(){ extra = '<p class="note">Could not find ' + esc(T) + ". Check the ticker and your Finnhub key.</p>"; renderList(); });
+  }
+
+  function fillSettings(){ Object.keys(DEF).forEach(function(k){ var el = $(k); if(el && document.activeElement !== el) el.value = S[k]; }); }
+
+  document.addEventListener("change", function(e){
+    var el = e.target; if(!el || !DEF.hasOwnProperty(el.id)) return;
+    if(el.id === "key"){ S.key = el.value.trim(); live = {}; }
+    else { var v = num(el.value, DEF[el.id]); if(v <= 0 && el.id !== "fee") v = DEF[el.id]; S[el.id] = v; }
+    saveSet(); fillSettings(); renderList(); if(el.id === "key") loadLive();
+  });
+  $("q").addEventListener("input", function(){ extra = null; renderList(); });
+  $("chips").addEventListener("click", function(e){
+    var b = e.target.closest("button"); if(!b) return;
+    filter = b.dataset.f;
+    Array.prototype.forEach.call($("chips").children, function(x){ x.className = x === b ? "on" : ""; });
+    renderList();
+  });
+  document.addEventListener("click", function(e){
+    var b = e.target.closest && e.target.closest("#doLookup"); if(b) lookup(b.dataset.t);
+  });
+  document.addEventListener("toggle", function(e){
+    var d = e.target; if(d && d.dataset && d.dataset.t) open[d.dataset.t] = d.open;
+  }, true);
+
+  fillSettings();
+  fetch("data.json?ts=" + Date.now()).then(function(r){ return r.json(); }).then(function(j){
+    DATA = j; renderMarket(); renderList(); loadLive();
+  }).catch(function(){
+    $("stamp").textContent = "";
+    $("market").innerHTML = '<p class="note">The analysis file did not load. Refresh the page in a minute.</p>';
+  });
+})();
+</script>
+</body>
+</html>

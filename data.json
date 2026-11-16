@@ -1,0 +1,574 @@
+{
+ "updated": "2026-11-16T15:30:00Z",
+ "updatedNote": "Prices are closing prices from the date shown on each stock. Add a free Finnhub key in Settings for live prices.",
+ "market": {
+  "mood": "Cautious",
+  "headline": "Tech is under pressure ahead of Nvidia's earnings on Tuesday night.",
+  "points": [
+   "Chips: Nvidia reports Tuesday after the close, its first results since CEO Jensen Huang left. That one report can move every tech stock on Wednesday.",
+   "Politics: After the Nov 3 midterms, traders worry about tighter AI and data centre rules. A Trump-Xi summit this week adds trade headlines.",
+   "Rates: October inflation came in hot and the 10-year US bond yield is above 5%. Higher rates usually weigh on pricey growth stocks.",
+   "Events: The Anthropic IPO later this week will test how much appetite is left for AI names."
+  ],
+  "plan": "Go slow this week. Buy steady names in small pieces now, and leave chip names until Wednesday when Nvidia's numbers are out."
+ },
+ "stocks": [
+  {
+   "t": "SPUS",
+   "n": "SP Funds S&P 500 Sharia ETF",
+   "kind": "Fund",
+   "sector": "Broad market",
+   "cur": "USD",
+   "halal": 3,
+   "halalNote": "Shariah-certified fund",
+   "price": 57.04,
+   "asOf": "Nov 13",
+   "low52": 46.43,
+   "high52": 61.42,
+   "pe": 27.7,
+   "beta": 1.09,
+   "earn": null,
+   "target": null,
+   "stop": 6,
+   "signal": "buy",
+   "sum": "The simple, certified way to own about 210 halal US companies at once.",
+   "why": [
+    "Down about 7% from its high, so you are not buying at the top.",
+    "One purchase spreads your money over many companies, so one bad stock hurts less.",
+    "Certified halal, so there is no screening homework."
+   ],
+   "risk": [
+    "About 44% of it sits in five big tech names, so it still falls when tech falls."
+   ],
+   "todo": "Good first purchase. Buy half now and half after Nvidia reports."
+  },
+  {
+   "t": "WSHR",
+   "n": "Wealthsimple Shariah World Equity ETF",
+   "kind": "Fund",
+   "sector": "World, low volatility",
+   "cur": "CAD",
+   "halal": 3,
+   "halalNote": "Shariah-certified fund",
+   "price": 35.11,
+   "asOf": "Sep 22",
+   "low52": 31.19,
+   "high52": 36.43,
+   "pe": null,
+   "beta": 0.72,
+   "earn": null,
+   "target": null,
+   "stop": 5,
+   "signal": "buy",
+   "sum": "A calm, Canadian-dollar halal fund. No currency fee when you buy it.",
+   "why": [
+    "Trades in Canadian dollars, so you skip the 1.5% US currency fee each way.",
+    "Holds about 150 steady companies around the world and moves much less than tech.",
+    "Certified halal."
+   ],
+   "risk": [
+    "Slow mover. Good for safety, weak for quick gains.",
+    "My price here is old. Check today's price in Wealthsimple."
+   ],
+   "todo": "A sensible place for money you can't afford to see swing, like a down payment.",
+   "chartUrl": "https://www.tradingview.com/symbols/NEO-WSHR/"
+  },
+  {
+   "t": "SPSK",
+   "n": "SP Funds Dow Jones Global Sukuk ETF",
+   "kind": "Fund",
+   "sector": "Sukuk (halal income)",
+   "cur": "USD",
+   "halal": 3,
+   "halalNote": "Shariah-certified sukuk fund",
+   "price": 17.54,
+   "asOf": "Oct 30",
+   "low52": 17.3,
+   "high52": 18.65,
+   "pe": null,
+   "beta": 0.17,
+   "earn": null,
+   "target": null,
+   "stop": 3,
+   "signal": "hold",
+   "sum": "A halal income fund that pays monthly, about 4.9% a year. Not a growth play.",
+   "why": [
+    "Pays a small amount every month.",
+    "Barely moves when stocks drop."
+   ],
+   "risk": [
+    "The price sits near its 52-week low and has gone nowhere for five years.",
+    "US withholding tax takes 15% of the payouts inside an FHSA."
+   ],
+   "todo": "Only use it to park cash for income. It will not help a few-month profit goal."
+  },
+  {
+   "t": "SMH",
+   "n": "VanEck Semiconductor ETF",
+   "kind": "Fund",
+   "sector": "Chips",
+   "cur": "USD",
+   "halal": 2,
+   "halalNote": "Passes Musaffa screen, not certified",
+   "price": 486.75,
+   "asOf": "Nov 13",
+   "low52": 315.05,
+   "high52": 671.83,
+   "pe": 25.5,
+   "beta": 1.8,
+   "earn": "2026-11-17",
+   "earnNote": "Nvidia, its biggest driver, reports Nov 17",
+   "target": null,
+   "stop": 10,
+   "signal": "wait",
+   "sum": "The chip rebound trade without leverage, spread over 25 chip makers.",
+   "why": [
+    "About 28% below its high, so there is real room to recover.",
+    "Chip stocks are priced at their cheapest in years compared with their profits."
+   ],
+   "risk": [
+    "It moves almost twice as much as the market. It fell 11% in one day on Nov 5.",
+    "Nvidia's results on Tuesday night will swing it hard either way."
+   ],
+   "todo": "Wait for Nvidia's results. If chips hold up on Wednesday, buy one share."
+  },
+  {
+   "t": "NVDA",
+   "n": "Nvidia",
+   "kind": "Stock",
+   "sector": "Chips",
+   "cur": "USD",
+   "halal": 2,
+   "halalNote": "Passes S&P Shariah screen",
+   "price": 162.85,
+   "asOf": "Nov 13",
+   "low52": 148.8,
+   "high52": 243.37,
+   "pe": 20.6,
+   "beta": 2.25,
+   "earn": "2026-11-17",
+   "target": 273.36,
+   "stop": 12,
+   "signal": "wait",
+   "sum": "The AI chip leader, down a third and in the middle of a leadership crisis.",
+   "why": [
+    "About 33% below its high, and cheap against its expected profits.",
+    "Analysts' average target is far above today's price."
+   ],
+   "risk": [
+    "Earnings land Tuesday night, the first since the CEO left. A 10% move overnight is normal for this stock.",
+    "Eleven analysts cut their rating last week, and there is talk of tighter export rules."
+   ],
+   "todo": "Do not buy before earnings. Look again Wednesday morning."
+  },
+  {
+   "t": "AVGO",
+   "n": "Broadcom",
+   "kind": "Stock",
+   "sector": "Chips",
+   "cur": "USD",
+   "halal": 2,
+   "halalNote": "Passes FTSE Shariah screen",
+   "price": 347.01,
+   "asOf": "Nov 13",
+   "low52": 289.77,
+   "high52": 495.0,
+   "pe": 44.3,
+   "beta": 1.51,
+   "earn": "2026-12-09",
+   "target": 529.24,
+   "stop": 12,
+   "signal": "wait",
+   "sum": "A big winner from custom AI chips, about 30% below its high.",
+   "why": [
+    "Money leaving Nvidia has been flowing into Broadcom.",
+    "Analysts' average target is roughly 50% above the price."
+   ],
+   "risk": [
+    "It was downgraded on Friday and fell nearly 7% that day.",
+    "Earnings on Dec 9 are the next big test."
+   ],
+   "todo": "Wait until after Nvidia reports. If you buy, plan to be out or smaller before Dec 9."
+  },
+  {
+   "t": "AMD",
+   "n": "AMD",
+   "kind": "Stock",
+   "sector": "Chips",
+   "cur": "USD",
+   "halal": 2,
+   "halalNote": "Passes FTSE Shariah screen",
+   "price": 534.06,
+   "asOf": "Nov 13",
+   "low52": 188.22,
+   "high52": 658.52,
+   "pe": 115.8,
+   "beta": 2.54,
+   "earn": null,
+   "target": 657.74,
+   "stop": 14,
+   "signal": "hold",
+   "sum": "Strong business, but the wildest stock on this list.",
+   "why": [
+    "Record quarter on Nov 3 and gaining ground on Nvidia."
+   ],
+   "risk": [
+    "It fell about 9% on Friday alone and moves two and a half times as much as the market.",
+    "Very expensive against current profits, so bad news hits it hard."
+   ],
+   "todo": "Skip it for now. A normal stop can't protect you well on a stock that swings this much."
+  },
+  {
+   "t": "TSM",
+   "n": "TSMC",
+   "kind": "Stock",
+   "sector": "Chips",
+   "cur": "USD",
+   "halal": 2,
+   "halalNote": "Passes S&P Shariah screen",
+   "price": 398.73,
+   "asOf": "Nov 13",
+   "low52": 266.82,
+   "high52": 487.47,
+   "pe": 26.9,
+   "beta": 1.23,
+   "earn": "2027-01-14",
+   "target": 586.69,
+   "stop": 10,
+   "signal": "wait",
+   "sum": "Makes the chips for nearly every AI company, so it wins whoever leads.",
+   "why": [
+    "About 18% below its high with a reasonable price against profits.",
+    "Less tied to the Nvidia leadership story than other chip names."
+   ],
+   "risk": [
+    "It still dropped 10.8% in the Nov 5 chip selloff.",
+    "Taiwan and US-China politics are a standing risk, and a Trump-Xi summit is on this week."
+   ],
+   "todo": "Wait for Nvidia's results and the summit headlines, then consider one share."
+  },
+  {
+   "t": "MSFT",
+   "n": "Microsoft",
+   "kind": "Stock",
+   "sector": "Software and cloud",
+   "cur": "USD",
+   "halal": 2,
+   "halalNote": "Held in SPUS (S&P Shariah screen)",
+   "price": 523.88,
+   "asOf": "Nov 13",
+   "low52": 349.2,
+   "high52": 559.15,
+   "pe": 27.4,
+   "beta": 1.05,
+   "earn": null,
+   "target": 636.12,
+   "stop": 7,
+   "signal": "buy",
+   "sum": "The steady one. It held up through the whole chip selloff.",
+   "why": [
+    "Only about 6% below its high while chip stocks fell 30%, which shows buyers trust it.",
+    "Moves about the same as the market, so the stop can be tighter.",
+    "Earnings are already out, so no surprise is due soon."
+   ],
+   "risk": [
+    "One share is about $745 CAD, a big piece of a small account.",
+    "It had a service outage last week. It is fixed, but watch for follow-up news."
+   ],
+   "todo": "A fair buy for one share. A limit order a little under today's price is fine."
+  },
+  {
+   "t": "GOOGL",
+   "n": "Alphabet (Google)",
+   "kind": "Stock",
+   "sector": "Search, ads and cloud",
+   "cur": "USD",
+   "halal": 2,
+   "halalNote": "Held in SPUS (S&P Shariah screen)",
+   "price": 295.77,
+   "asOf": "Nov 13",
+   "low52": 270.7,
+   "high52": 408.61,
+   "pe": 15.4,
+   "beta": 1.23,
+   "earn": null,
+   "target": 400.37,
+   "stop": 8,
+   "signal": "buy",
+   "sum": "The cheapest big tech name against its profits, about 28% below its high.",
+   "why": [
+    "Its price-to-earnings is near 15, the lowest of the seven biggest tech companies.",
+    "Its income comes from ads and cloud, so it depends less on chip spending.",
+    "Earnings are already out."
+   ],
+   "risk": [
+    "It trades close to its 52-week low. Cheap stocks can get cheaper.",
+    "A class action was filed this month and ad revenue has been soft."
+   ],
+   "todo": "Buy one share now and a second after Nvidia reports."
+  },
+  {
+   "t": "AAPL",
+   "n": "Apple",
+   "kind": "Stock",
+   "sector": "Devices",
+   "cur": "USD",
+   "halal": 2,
+   "halalNote": "Held in SPUS (S&P Shariah screen)",
+   "price": 356.27,
+   "asOf": "Nov 13",
+   "low52": 243.42,
+   "high52": 360.83,
+   "pe": 39.7,
+   "beta": 1.09,
+   "earn": null,
+   "target": 346.37,
+   "stop": 7,
+   "signal": "hold",
+   "sum": "A safe haven lately, but priced at the top.",
+   "why": [
+    "Investors moved into Apple while chips fell."
+   ],
+   "risk": [
+    "It sits about 1% below its all-time high and already above analysts' average target.",
+    "Pricey against profits, so there is little room left for a few-month trade."
+   ],
+   "todo": "Hold off. Put it on your list for a pullback of 8% or more."
+  },
+  {
+   "t": "TSLA",
+   "n": "Tesla",
+   "kind": "Stock",
+   "sector": "Electric vehicles",
+   "cur": "USD",
+   "halal": 2,
+   "halalNote": "Held in SPUS (S&P Shariah screen)",
+   "price": 390.22,
+   "asOf": "Nov 13",
+   "low52": 297.38,
+   "high52": 498.83,
+   "pe": 428.7,
+   "beta": 1.74,
+   "earn": null,
+   "target": 412.48,
+   "stop": 14,
+   "signal": "hold",
+   "sum": "A story stock. The price runs on headlines more than on profits.",
+   "why": [
+    "About 22% below its high, and Cybercab pre-orders have opened."
+   ],
+   "risk": [
+    "Extremely expensive against its profits.",
+    "It is reported to be winding down Cybertruck production, and it swings on every headline."
+   ],
+   "todo": "Skip for a planned, rule-based trade. Too unpredictable."
+  },
+  {
+   "t": "META",
+   "n": "Meta (Facebook)",
+   "kind": "Stock",
+   "sector": "Social media and ads",
+   "cur": "USD",
+   "halal": 1,
+   "halalNote": "Screeners disagree. Check before buying",
+   "price": 641.69,
+   "asOf": "Nov 13",
+   "low52": 520.26,
+   "high52": 779.82,
+   "pe": 21.9,
+   "beta": 1.28,
+   "earn": null,
+   "target": 850.1,
+   "stop": 9,
+   "signal": "wait",
+   "sum": "Reasonably priced and 18% below its high, but the halal status needs your own check.",
+   "why": [
+    "Fair price against profits, and analysts' target is well above today's price."
+   ],
+   "risk": [
+    "Halal screeners do not all agree on Meta. Check Zoya or Musaffa first.",
+    "Italy fined it about $887 million this month, and it is spending heavily on AI."
+   ],
+   "todo": "Settle the halal question first. If it passes for you, treat it like Alphabet."
+  },
+  {
+   "t": "LLY",
+   "n": "Eli Lilly",
+   "kind": "Stock",
+   "sector": "Health care",
+   "cur": "USD",
+   "halal": 2,
+   "halalNote": "Held in SPUS (S&P Shariah screen)",
+   "price": 1443.5,
+   "asOf": "Nov 13",
+   "low52": 850.51,
+   "high52": 1460.0,
+   "pe": 46.9,
+   "beta": 0.39,
+   "earn": null,
+   "target": 1463.4,
+   "stop": 7,
+   "signal": "hold",
+   "sum": "The weight-loss drug leader, sitting at a record high.",
+   "why": [
+    "Not a tech stock, so it spreads your risk.",
+    "It barely moves with the market."
+   ],
+   "risk": [
+    "At its high and right at analysts' average target, so the easy gains are behind it.",
+    "One share costs about $2,050 CAD."
+   ],
+   "todo": "Hold off. Too big for one share on a $10,000 account, and no discount."
+  },
+  {
+   "t": "JNJ",
+   "n": "Johnson & Johnson",
+   "kind": "Stock",
+   "sector": "Health care",
+   "cur": "USD",
+   "halal": 2,
+   "halalNote": "Held in SPUS (S&P Shariah screen)",
+   "price": 285.75,
+   "asOf": "Nov 13",
+   "low52": 193.45,
+   "high52": 288.11,
+   "pe": 43.4,
+   "beta": 0.2,
+   "earn": null,
+   "target": 279.41,
+   "stop": 5,
+   "signal": "hold",
+   "sum": "A defensive stock that investors ran to during the tech selloff.",
+   "why": [
+    "Very calm. It hardly reacts to market drops."
+   ],
+   "risk": [
+    "At its high and above analysts' average target, so you would be buying after the run.",
+    "Ongoing talc lawsuits."
+   ],
+   "todo": "Hold off. Good company, wrong price for a new trade."
+  },
+  {
+   "t": "ABT",
+   "n": "Abbott Laboratories",
+   "kind": "Stock",
+   "sector": "Health care",
+   "cur": "USD",
+   "halal": 2,
+   "halalNote": "Typically passes Shariah screens. Check before buying",
+   "price": 106.2,
+   "asOf": "Oct 30",
+   "low52": 81.97,
+   "high52": 132.03,
+   "pe": 39.5,
+   "beta": 0.58,
+   "earn": null,
+   "target": 118.52,
+   "stop": 6,
+   "signal": "buy",
+   "sum": "A calm health care name still about 20% below its high.",
+   "why": [
+    "A discount without tech's wild swings.",
+    "A new heart device study met its goals at the end of October.",
+    "A low share price means you can buy several shares and size the trade exactly."
+   ],
+   "risk": [
+    "My price is two weeks old. Check today's price first.",
+    "Health stocks can stay out of favour for a long time."
+   ],
+   "todo": "A good non-tech pick. Confirm the price and the halal status, then buy in one go."
+  },
+  {
+   "t": "PG",
+   "n": "Procter & Gamble",
+   "kind": "Stock",
+   "sector": "Household goods",
+   "cur": "USD",
+   "halal": 2,
+   "halalNote": "Typically passes Shariah screens. Check before buying",
+   "price": 168.03,
+   "asOf": "early Nov",
+   "low52": 137.62,
+   "high52": 170.73,
+   "pe": 25.6,
+   "beta": 0.36,
+   "earn": null,
+   "target": 174.04,
+   "stop": 5,
+   "signal": "hold",
+   "sum": "Soap, diapers and razors. Steady, but near its high.",
+   "why": [
+    "People buy its products in any economy, and sales grew 4% last quarter."
+   ],
+   "risk": [
+    "Under 2% below its high, with only a small gap to analysts' target.",
+    "My price is a couple of weeks old."
+   ],
+   "todo": "Hold off. Useful as a safe corner later, not as a profit trade now."
+  },
+  {
+   "t": "HD",
+   "n": "Home Depot",
+   "kind": "Stock",
+   "sector": "Home improvement",
+   "cur": "USD",
+   "halal": 2,
+   "halalNote": "Typically passes Shariah screens. Check before buying",
+   "price": 329.2,
+   "asOf": "Oct 30",
+   "low52": 277.15,
+   "high52": 397.63,
+   "pe": 23.0,
+   "beta": 1.0,
+   "earn": "2026-11-17",
+   "target": 379.0,
+   "stop": 7,
+   "signal": "wait",
+   "sum": "About 17% below its high, with earnings due Tuesday.",
+   "why": [
+    "Fair price against profits and older US homes need repairs."
+   ],
+   "risk": [
+    "Earnings on Nov 17 can move it sharply.",
+    "High interest rates slow home sales and big renovation jobs.",
+    "My price is two weeks old."
+   ],
+   "todo": "Wait for Tuesday's results, then look again."
+  },
+  {
+   "t": "LIN",
+   "n": "Linde",
+   "kind": "Stock",
+   "sector": "Industrial gases",
+   "cur": "USD",
+   "halal": 2,
+   "halalNote": "Typically passes Shariah screens. Check before buying",
+   "price": 515.25,
+   "asOf": "Nov 6",
+   "low52": 387.78,
+   "high52": 548.2,
+   "pe": 34.2,
+   "beta": 0.68,
+   "earn": null,
+   "target": 550.85,
+   "stop": 6,
+   "signal": "buy",
+   "sum": "Sells gases that factories and hospitals need every day. Quiet and steady.",
+   "why": [
+    "About 6% below its high and calmer than the market.",
+    "It has raised its dividend for decades, which signals a stable business.",
+    "Nothing to do with the AI trade, so it spreads your risk."
+   ],
+   "risk": [
+    "One share is about $730 CAD.",
+    "The gap to analysts' target is modest, so expect slow gains."
+   ],
+   "todo": "A fair buy for one share if you want something outside tech."
+  }
+ ],
+ "sources": [
+  "Prices and ranges: stockanalysis.com quote pages",
+  "Market news: Reuters, Yahoo Finance, CNBC and TipRanks coverage from Nov 13 to 16, 2026",
+  "Halal status: fund certificates, S&P and FTSE Shariah index holdings, Musaffa"
+ ]
+}
