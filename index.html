@@ -284,8 +284,8 @@ dd{margin:0;color:var(--muted)}
       '<div class="cell"><div class="k">If every target hits</div><div class="big good">+' + cad(gain) + '</div><div class="x">fees included</div></div></div>' +
       '<p class="sub">' + buys.map(function(c){ return c.s.t + " x" + c.shares; }).join(", ") + ". You do not have to buy them all. Start with one or two.</p>";
     var nx = nextRun(), f = {weekday:"short", hour:"numeric", minute:"2-digit"};
-    $("anaInfo").textContent = "Last analysis: " + new Date(DATA.updated).toLocaleString("en-CA", f) + ". " +
-      (nx ? "Next automatic one: " + nx.toLocaleString("en-CA", f) + ". " : "") + "It runs by itself every weekday morning before the market opens.";
+    $("anaInfo").textContent = "Last analysis: " + new Date(DATA.updated).toLocaleString("en-CA", f) +
+      (nx ? " · Next automatic one: " + nx.toLocaleString("en-CA", f) : "") + " · It runs by itself every weekday morning before the market opens.";
   }
 
   function renderList(){
