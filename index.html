@@ -108,6 +108,7 @@ dd{margin:0;color:var(--muted)}
       <button type="button" data-f="wait">Wait</button>
       <button type="button" data-f="hold">Hold off</button>
     </div>
+    <div class="row"><button type="button" id="refresh">Refresh live prices</button><span class="sub" id="liveStatus">Showing closing prices from the morning update.</span></div>
     <div id="lookup"></div>
   </section>
 
@@ -239,9 +240,8 @@ dd{margin:0;color:var(--muted)}
     var q = $("q").value.trim().toLowerCase();
     var rank = {buy:0, wait:1, hold:2};
     var rows = DATA.stocks.filter(function(s){
-      if(filter !== "all" && s.signal !== filter) return false;
-      if(!q) return true;
-      return (s.t + " " + s.n + " " + s.sector).toLowerCase().indexOf(q) >= 0;
+      if(q) return (s.t + " " + s.n + " " + s.sector).toLowerCase().indexOf(q) >= 0;
+      return filter === "all" || s.signal === filter;
     }).sort(function(a,b){ return rank[a.signal] - rank[b.signal]; });
     $("list").innerHTML = rows.map(function(s){ return card(calc(s)); }).join("") ||
       '<p class="sub">No match in the list.</p>';
@@ -263,12 +263,19 @@ dd{margin:0;color:var(--muted)}
     if(!S.key || !DATA) return;
     var list = DATA.stocks.filter(function(s){ return s.cur !== "CAD"; });
     var i = 0, fails = 0;
+    $("liveStatus").textContent = "Getting live prices…";
+    function done(){
+      var n = Object.keys(live).length;
+      $("liveStatus").textContent = n ? "Live prices for " + n + " stocks, checked at " + new Date().toLocaleTimeString("en-CA",{hour:"numeric", minute:"2-digit"}) + "."
+        : "Live prices did not load. Check the Finnhub key in Settings.";
+      renderList();
+    }
     (function next(){
-      if(i >= list.length){ renderList(); return; }
+      if(i >= list.length){ done(); return; }
       var s = list[i++];
       quote(s.t).then(function(j){ if(j && j.c > 0) live[s.t] = {c:j.c, dp:j.dp}; })
         .catch(function(){ fails++; })
-        .then(function(){ if(fails >= 3){ renderList(); return; } setTimeout(next, 120); });
+        .then(function(){ if(fails >= 3){ done(); return; } setTimeout(next, 120); });
     })();
   }
   function lookup(T){
@@ -296,6 +303,15 @@ dd{margin:0;color:var(--muted)}
     saveSet(); fillSettings(); renderList(); if(el.id === "key") loadLive();
   });
   $("q").addEventListener("input", function(){ extra = null; renderList(); });
+  $("refresh").addEventListener("click", function(){
+    if(!S.key){
+      $("settingsBox").open = true;
+      $("liveStatus").textContent = "Live prices need a free Finnhub key. Paste it in Settings below.";
+      $("key").focus();
+      return;
+    }
+    live = {}; loadLive();
+  });
   $("chips").addEventListener("click", function(e){
     var b = e.target.closest("button"); if(!b) return;
     filter = b.dataset.f;
