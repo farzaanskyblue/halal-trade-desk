@@ -72,6 +72,11 @@ summary::-webkit-details-marker{display:none}
 .pill.ok{background:var(--accent-soft);color:var(--accent);border-color:transparent}
 .pill.w{background:var(--warn-soft);color:var(--warn);border-color:transparent}
 .sumline{grid-column:1 / -1;font-size:14px}
+.more{grid-column:1 / -1;font-size:13px;color:var(--accent);font-weight:500}
+.more::after{content:"Show the full read \25BE"}
+details[open] > summary .more::after{content:"Hide \25B4"}
+button{min-height:38px}
+.big{font-family:var(--font-num);font-size:18px;font-weight:500}
 .body{padding:0 14px 14px;display:flex;flex-direction:column;gap:12px;border-top:1px solid var(--line);padding-top:12px}
 .todo{background:var(--accent-soft);border-radius:8px;padding:9px 11px;font-size:14px}
 .plan{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:8px}
@@ -98,15 +103,34 @@ dd{margin:0;color:var(--muted)}
     <p class="sub">Halal-screened stocks with a plain-English read on each one: buy zone, wait, or hold off, and exactly what to enter in Wealthsimple.</p>
   </header>
 
+  <details class="panel" id="howto">
+    <summary style="padding:0;display:block"><h2>How to use this page</h2></summary>
+    <ol style="margin:10px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:14px;max-width:70ch">
+      <li>Read <b>Market today</b> first. It tells you if this is a week to buy or to sit tight.</li>
+      <li>Tap <b>Buy zone</b> to see the picks that look good right now.</li>
+      <li>Tap a stock to open it. Read <b>What to do</b>, then <b>Why</b> and <b>Watch out</b>.</li>
+      <li>Use the <b>Order ticket</b> numbers in Wealthsimple: a limit buy, then a stop-limit sell and a profit limit sell.</li>
+      <li>Press <b>Refresh live prices</b> any time. The ticket numbers follow the live price.</li>
+    </ol>
+  </details>
+
   <section class="panel mood" id="market" aria-label="Market today"></section>
+
+  <section class="panel" id="anaBox" aria-label="Analysis updates">
+    <div class="row"><h2>Analysis updates</h2><button type="button" id="askBtn">Copy refresh request</button></div>
+    <p class="sub" id="anaInfo"></p>
+    <p class="sub" id="askStatus">Want a fresh one right now? Press the button, then paste the message to Claude in your chat. It takes a few minutes and this page updates by itself.</p>
+  </section>
+
+  <section class="panel" id="planBox" aria-label="If you buy every buy zone pick"></section>
 
   <section class="panel" aria-label="Search">
     <label class="f" for="q">Search a stock by name, ticker or sector<input id="q" type="search" placeholder="Try Alphabet, MSFT or health" autocomplete="off"></label>
     <div class="chips" id="chips">
-      <button type="button" data-f="all" class="on">All</button>
-      <button type="button" data-f="buy">Buy zone</button>
-      <button type="button" data-f="wait">Wait</button>
-      <button type="button" data-f="hold">Hold off</button>
+      <button type="button" data-f="all" data-l="All" class="on">All</button>
+      <button type="button" data-f="buy" data-l="Buy zone">Buy zone</button>
+      <button type="button" data-f="wait" data-l="Wait">Wait</button>
+      <button type="button" data-f="hold" data-l="Hold off">Hold off</button>
     </div>
     <div class="row"><button type="button" id="refresh">Refresh live prices</button><span class="sub" id="liveStatus">Showing closing prices from the morning update.</span></div>
     <div id="lookup"></div>
@@ -181,7 +205,7 @@ dd{margin:0;color:var(--muted)}
     var shares = Math.max(0, Math.min(Math.floor(riskLocal/perShare), cap));
     var stopPx = price*(1 - s.stop/100), target = price*(1 + s.stop/100*S.rr);
     var costCad = shares*price*fx, feeCad = costCad*(fee/100)*2;
-    return {s:s, price:price, live:!!lv, chg:lv ? lv.dp : null, below:below, days:d, soon:soon, shares:shares, cap:cap,
+    return {s:s, price:price, moved: lv ? (lv.c - s.price)/s.price*100 : null, live:!!lv, chg:lv ? lv.dp : null, below:below, days:d, soon:soon, shares:shares, cap:cap,
       perShareCad:perShare*fx, stopPx:stopPx, limPx:stopPx*0.99, target:target, costCad:costCad, feeCad:feeCad,
       loss:shares*perShare*fx + feeCad, gain:shares*perShare*S.rr*fx - feeCad, isCad:isCad};
   }
@@ -202,7 +226,8 @@ dd{margin:0;color:var(--muted)}
     var pills = '<span class="pill ' + s.signal + '">' + LABEL[s.signal] + "</span>" +
       '<span class="pill ' + (s.halal === 3 ? "ok" : s.halal === 1 ? "w" : "") + '">' + esc(s.halalNote) + "</span>" +
       (s.high52 ? '<span class="pill">' + pct(c.below*100) + " below high</span>" : "") +
-      (c.soon ? '<span class="pill w">' + esc(s.earnNote || ("Earnings in " + c.days + "d")) + "</span>" : "");
+      (c.soon ? '<span class="pill w">' + esc(s.earnNote || ("Earnings in " + c.days + "d")) + "</span>" : "") +
+      (c.moved != null && Math.abs(c.moved) >= 4 ? '<span class="pill w">' + (c.moved > 0 ? "Up " : "Down ") + pct(Math.abs(c.moved)) + " since the analysis</span>" : "");
     var chg = c.live && c.chg != null ? '<div class="chg ' + (c.chg >= 0 ? "good" : "bad") + '">' + (c.chg >= 0 ? "+" : "") + c.chg.toFixed(2) + "% today</div>"
       : '<div class="chg" style="color:var(--muted)">close ' + esc(s.asOf) + "</div>";
     var buy = c.shares < 1
@@ -214,9 +239,10 @@ dd{margin:0;color:var(--muted)}
       "<summary><div><span class=\"tk\">" + esc(s.t) + '</span> <span class="nm">' + esc(s.n) + "</span></div>" +
       '<div><div class="px">' + money(c.price) + "</div>" + chg + "</div>" +
       '<div class="line2">' + pills + "</div>" +
-      '<div class="sumline">' + esc(s.sum) + "</div></summary>" +
+      '<div class="sumline">' + esc(s.sum) + '</div><div class="more"></div></summary>' +
       '<div class="body">' +
         '<p class="todo"><b>What to do:</b> ' + esc(s.todo) + "</p>" +
+        (c.moved != null && Math.abs(c.moved) >= 4 ? '<p class="note">The price has moved ' + pct(Math.abs(c.moved)) + " since this was written. Ask Claude for a fresh read before acting.</p>" : "") +
         "<div><h3>Why</h3><ul>" + s.why.map(function(w){ return "<li>" + esc(w) + "</li>"; }).join("") + "</ul></div>" +
         "<div><h3>Watch out</h3><ul>" + s.risk.map(function(w){ return "<li>" + esc(w) + "</li>"; }).join("") + "</ul></div>" +
         '<div><h3>Order ticket for your account</h3><div class="plan" style="margin-top:6px">' + buy +
@@ -235,8 +261,36 @@ dd{margin:0;color:var(--muted)}
       "</div></details>";
   }
 
+  function nextRun(){
+    var d = new Date(); d.setUTCSeconds(0,0);
+    for(var i = 0; i < 8; i++){
+      var t = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate() + i, 13, 10));
+      var day = t.getUTCDay();
+      if(day >= 1 && day <= 5 && t.getTime() > Date.now()) return t;
+    }
+    return null;
+  }
+  function renderExtras(){
+    var n = {all:DATA.stocks.length, buy:0, wait:0, hold:0};
+    DATA.stocks.forEach(function(s){ n[s.signal]++; });
+    Array.prototype.forEach.call($("chips").children, function(b){ b.textContent = b.dataset.l + " " + n[b.dataset.f]; });
+    var buys = DATA.stocks.filter(function(s){ return s.signal === "buy"; }).map(calc);
+    var inv = 0, loss = 0, gain = 0;
+    buys.forEach(function(c){ inv += c.costCad; loss += c.loss; gain += c.gain; });
+    $("planBox").innerHTML = "<h2>If you buy every Buy zone pick</h2>" +
+      '<div class="plan"><div class="cell"><div class="k">You invest</div><div class="big">' + cad(inv) + '</div><div class="x">' + pct(S.acct ? inv/S.acct*100 : 0) + " of your account</div></div>" +
+      '<div class="cell"><div class="k">Cash left</div><div class="big">' + cad(Math.max(0, S.acct - inv)) + '</div><div class="x">kept for dips</div></div>' +
+      '<div class="cell"><div class="k">If every stop hits</div><div class="big bad">-' + cad(loss) + '</div><div class="x">fees included</div></div>' +
+      '<div class="cell"><div class="k">If every target hits</div><div class="big good">+' + cad(gain) + '</div><div class="x">fees included</div></div></div>' +
+      '<p class="sub">' + buys.map(function(c){ return c.s.t + " x" + c.shares; }).join(", ") + ". You do not have to buy them all. Start with one or two.</p>";
+    var nx = nextRun(), f = {weekday:"short", hour:"numeric", minute:"2-digit"};
+    $("anaInfo").textContent = "Last analysis: " + new Date(DATA.updated).toLocaleString("en-CA", f) + ". " +
+      (nx ? "Next automatic one: " + nx.toLocaleString("en-CA", f) + ". " : "") + "It runs by itself every weekday morning before the market opens.";
+  }
+
   function renderList(){
     if(!DATA) return;
+    renderExtras();
     var q = $("q").value.trim().toLowerCase();
     var rank = {buy:0, wait:1, hold:2};
     var rows = DATA.stocks.filter(function(s){
@@ -266,7 +320,7 @@ dd{margin:0;color:var(--muted)}
     $("liveStatus").textContent = "Getting live prices…";
     function done(){
       var n = Object.keys(live).length;
-      $("liveStatus").textContent = n ? "Live prices for " + n + " stocks, checked at " + new Date().toLocaleTimeString("en-CA",{hour:"numeric", minute:"2-digit"}) + "."
+      $("liveStatus").textContent = n ? "Live prices for " + n + " stocks, checked at " + new Date().toLocaleTimeString("en-CA",{hour:"numeric", minute:"2-digit"})
         : "Live prices did not load. Check the Finnhub key in Settings.";
       renderList();
     }
@@ -303,6 +357,12 @@ dd{margin:0;color:var(--muted)}
     saveSet(); fillSettings(); renderList(); if(el.id === "key") loadLive();
   });
   $("q").addEventListener("input", function(){ extra = null; renderList(); });
+  $("askBtn").addEventListener("click", function(){
+    var msg = "Refresh the desk";
+    var ok = function(){ $("askStatus").textContent = "Copied. Paste it to Claude in your chat and the analysis will update in a few minutes."; };
+    var no = function(){ $("askStatus").textContent = "Could not copy. Just message Claude: Refresh the desk"; };
+    try{ navigator.clipboard.writeText(msg).then(ok, no); }catch(e){ no(); }
+  });
   $("refresh").addEventListener("click", function(){
     if(!S.key){
       $("settingsBox").open = true;
