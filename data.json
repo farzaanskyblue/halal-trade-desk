@@ -1,16 +1,16 @@
 {
- "updated": "2026-11-17T13:27:08Z",
+ "updated": "2026-11-18T13:20:30Z",
  "updatedNote": "Prices are closing prices from the date shown on each stock. Add a free Finnhub key in Settings for live prices.",
  "market": {
-  "mood": "Nervous",
-  "headline": "Stocks fell for a third day on Monday, led by chips. Nvidia reports tonight after the close.",
+  "mood": "Cautious",
+  "headline": "Nvidia beat forecasts last night and US futures are up this morning, but rates are still high and the S&P 500 sits at a five-month low.",
   "points": [
-   "Chips: The Nasdaq dropped 2.5% and the S&P 500 fell 1.9% on Monday. Nvidia lost 4%, AMD almost 6% and TSMC about 6%. A new US rule makes it harder to rent out advanced chips to Chinese firms through data centres in other countries, and adds licences for some Southeast Asia sales.",
-   "Rates: The 10-year US bond yield is about 5.1%, well above its early November low of 4.8%. Last week's inflation report was hotter than expected, so traders lean toward a Fed rate hike in December. Higher rates usually weigh on pricey growth stocks and on home spending.",
-   "Politics: Trump and Elon Musk are in China this week around the APEC meetings. After the Democrats' big midterm wins, some investors worry about new limits on AI data centres.",
-   "Events: US retail sales come out this morning and Nvidia reports around 4:20 pm Eastern. Wednesday has the Fed's meeting notes and Anthropic's IPO pricing, with trading starting Thursday. P&G holds an investor day Thursday."
+   "Chips: Nvidia's sales doubled from a year ago to about $116 billion, and it expects about $130 billion next quarter, more than analysts hoped. The stock rose about 4% before the open, and AMD and Broadcom gained 2% to 3%. The new US chip export rules still take effect on Thursday.",
+   "Tuesday: The S&P 500 fell 1% for its fourth loss in a row, and the Dow dropped about 850 points. Software stocks were hit hard (Salesforce fell 9%) on fears that AI tools will replace their products. Health stocks also slid after the US proposed new anti-fraud rules for Medicare and Medicaid.",
+   "Rates: The 10-year US bond yield is about 5.1%. Traders now expect the Fed to raise rates in December because inflation is running hot. Higher rates usually weigh on pricey growth stocks and on home spending.",
+   "Events: The Fed's meeting notes come out at 2 pm Eastern today. Anthropic prices its IPO tonight and starts trading Thursday. P&G holds its investor day Thursday, and Microsoft's outage report is due Friday."
   ],
-  "plan": "Stay patient. The biggest event of the week lands tonight, so let Nvidia's results and Wednesday's reaction pass before buying any tech. If you want to start something now, keep it small and pick the calm, non-tech names."
+  "plan": "Nvidia cleared its big test, but one good morning does not fix the trend. Keep any new buys small, favour the calm names and the halal funds, and give chips and software a few days to settle."
  },
  "stocks": [
   {
@@ -21,8 +21,8 @@
    "cur": "USD",
    "halal": 3,
    "halalNote": "Shariah-certified fund",
-   "price": 57.04,
-   "asOf": "Nov 13",
+   "price": 55.32,
+   "asOf": "Nov 17",
    "low52": 46.43,
    "high52": 61.42,
    "pe": 27.7,
@@ -33,15 +33,15 @@
    "signal": "buy",
    "sum": "The simple, certified way to own about 220 halal US companies at once.",
    "why": [
-    "Down about 7% from its high as of Friday, and the market fell again Monday, so you are not buying at the top.",
+    "About 10% below its high after four down days, so you are not buying at the top.",
     "One purchase spreads your money over many companies, so one bad stock hurts less.",
     "Certified halal, so there is no screening homework."
    ],
    "risk": [
-    "Nvidia is about 10% of the fund and Apple about 14%, so tonight's Nvidia results will move it.",
-    "I could not confirm Monday's close. The price shown is Friday's, and with the market down about 2% Monday it is likely a bit lower now."
+    "Nvidia and Apple are a big part of the fund, so big tech news moves it a lot.",
+    "The market is still falling day to day and rates are high, so it could slip more before it turns."
    ],
-   "todo": "Still a fine first purchase, but split it. Buy a small first piece now and the rest after Nvidia reports."
+   "todo": "Still the best first purchase on this list. Nvidia's results are out, so you can add the second piece now, or spread it over a couple of weeks if the swings bother you."
   },
   {
    "t": "WSHR",
@@ -53,8 +53,8 @@
    "halalNote": "Shariah-certified fund",
    "price": 37.46,
    "asOf": "Nov 13",
-   "low52": null,
-   "high52": null,
+   "low52": 31.19,
+   "high52": 37.95,
    "pe": null,
    "beta": 0.72,
    "earn": null,
@@ -69,9 +69,9 @@
    ],
    "risk": [
     "Slow mover. Good for safety, weak for quick gains.",
-    "I found a fresh Nov 13 close of $37.46, but not a reliable 52-week range, so the range is hidden for now. Check the live price in Wealthsimple."
+    "I could not confirm a dated close after Nov 13, so the price shown is from then. Wealthsimple's page showed about $36.90 but with no date, which would be a little lower. Check the live price in the app."
    ],
-   "todo": "A sensible place for money you can't afford to see swing, like a down payment. Check the live price first.",
+   "todo": "A sensible place for money you can't afford to see swing, like a down payment. Check the live price first and use a limit order.",
    "chartUrl": "https://www.tradingview.com/symbols/NEO-WSHR/"
   },
   {
@@ -82,10 +82,10 @@
    "cur": "USD",
    "halal": 3,
    "halalNote": "Shariah-certified sukuk fund",
-   "price": 17.43,
-   "asOf": "Nov 13",
-   "low52": 17.37,
-   "high52": 18.61,
+   "price": 17.44,
+   "asOf": "Nov 17",
+   "low52": 17.3,
+   "high52": 18.64,
    "pe": null,
    "beta": 0.17,
    "earn": null,
@@ -95,10 +95,10 @@
    "sum": "A halal income fund that pays monthly, about 4.9% a year. Not a growth play.",
    "why": [
     "Pays a small amount every month.",
-    "Barely moves when stocks drop."
+    "Barely moves when stocks drop. It even ticked up a little on Tuesday."
    ],
    "risk": [
-    "It slid five days in a row to $17.43, right next to its 52-week low of $17.37. Rising interest rates tend to push funds like this lower.",
+    "It sits less than 1% above its 52-week low of $17.30. With the Fed likely to raise rates in December, funds like this can drift lower.",
     "US withholding tax takes 15% of the payouts inside an FHSA."
    ],
    "todo": "Only use it to park cash for income. It will not help a few-month profit goal."
@@ -111,27 +111,27 @@
    "cur": "USD",
    "halal": 2,
    "halalNote": "Passes Musaffa screen, not certified",
-   "price": 486.75,
-   "asOf": "Nov 13",
+   "price": 460.1,
+   "asOf": "Nov 17",
    "low52": 315.05,
    "high52": 671.83,
    "pe": 25.5,
    "beta": 1.8,
-   "earn": "2026-11-17",
-   "earnNote": "Nvidia, its biggest driver, reports Nov 17",
+   "earn": "2026-12-09",
+   "earnNote": "Broadcom, a big holding, reports Dec 9",
    "target": null,
    "stop": 10,
    "signal": "wait",
    "sum": "The chip rebound trade without leverage, spread over 26 chip makers.",
    "why": [
-    "About 28% below its high as of Friday, so there is real room to recover.",
-    "It spreads you across Nvidia, AMD, Broadcom, TSMC and others, so you do not have to guess which one wins."
+    "About 32% below its high, so there is real room to recover.",
+    "Nvidia's strong results lifted chip stocks before the open, and this fund spreads you across all of them."
    ],
    "risk": [
-    "It moves almost twice as much as the market. It slid about 5% more on Monday, but I could not confirm the exact close, so the price shown is Friday's.",
-    "Nvidia's results tonight will swing it hard either way, and the new US chip rule adds pressure on the whole group."
+    "It moves almost twice as much as the market. It closed down 0.4% Tuesday before Nvidia's results came out.",
+    "The new US chip export rules start Thursday, and the Anthropic IPO will test how much money is still chasing AI."
    ],
-   "todo": "Wait for Nvidia's results. If chips hold up on Wednesday and Thursday, think about one share."
+   "todo": "Let Nvidia's bounce and the new chip rules settle for a few days. If chips hold their gains into next week, think about one share."
   },
   {
    "t": "NVDA",
@@ -141,27 +141,27 @@
    "cur": "USD",
    "halal": 2,
    "halalNote": "Passes S&P Shariah screen",
-   "price": 156.14,
-   "asOf": "Nov 16",
+   "price": 155.46,
+   "asOf": "Nov 17",
    "low52": 148.8,
    "high52": 243.37,
    "pe": 20.6,
    "beta": 2.25,
-   "earn": "2026-11-17",
+   "earn": null,
    "target": 273.36,
    "stop": 12,
    "signal": "wait",
-   "sum": "The AI chip leader, down about a third with no permanent CEO, reporting tonight.",
+   "sum": "The AI chip leader. Strong results last night, but big questions about who runs it.",
    "why": [
-    "About 36% below its high and cheap against its expected profits.",
-    "Analysts' average target is far above today's price, though many have been cutting their targets this week."
+    "Sales doubled from a year ago, and next quarter's forecast beat what analysts expected.",
+    "About 36% below its high, and cheap against its expected profits. It rose about 4% before Wednesday's open."
    ],
    "risk": [
-    "Earnings land tonight at about 4:20 pm Eastern, the first since Jensen Huang resigned. Big overnight moves are normal for this stock.",
-    "The finance chief is filling in as CEO. Reports say Huang's return is not being discussed, and the Treasury Secretary has urged an outside hire.",
-    "The new rule on renting chips to Chinese firms abroad could cut into sales. It fell 4% on Monday."
+    "The board says it will not bring back Jensen Huang, and there are reports of government probes tied to his exit. A permanent CEO is still not named.",
+    "It moves more than twice as much as the market, so a one-day jump can fade fast.",
+    "The new US rules on chip sales to Chinese firms abroad start Thursday."
    ],
-   "todo": "Do not buy before earnings. Look again Wednesday once the price settles."
+   "todo": "Good news, but let it settle. Watch a few days of trading and any CEO news before buying."
   },
   {
    "t": "AVGO",
@@ -171,8 +171,8 @@
    "cur": "USD",
    "halal": 2,
    "halalNote": "Passes FTSE Shariah screen",
-   "price": 333.4,
-   "asOf": "Nov 16",
+   "price": 341.6,
+   "asOf": "Nov 17",
    "low52": 289.77,
    "high52": 495.0,
    "pe": 44.3,
@@ -181,16 +181,16 @@
    "target": 529.24,
    "stop": 12,
    "signal": "wait",
-   "sum": "A big winner from custom AI chips, about 30% below its high.",
+   "sum": "A big winner from custom AI chips, about 31% below its high.",
    "why": [
-    "Some of the money leaving Nvidia has been moving into Broadcom.",
+    "It rose 2.5% on Tuesday, one of the few gainers, and was up again before Wednesday's open after Nvidia's results.",
     "Analysts' average target is well above the price."
    ],
    "risk": [
-    "It fell about 4% on Monday, its second down day in a row, on the tighter US chip rules.",
-    "Its own earnings on Dec 9 are the next big test, and Nvidia's results tonight will move it first."
+    "Its own earnings on Dec 9 are the next big test, about three weeks away.",
+    "The new US chip rules start Thursday and could hit the whole group."
    ],
-   "todo": "Wait until after Nvidia reports. If you buy, plan to be out or smaller before Dec 9."
+   "todo": "Wait a few days for the chip rules to kick in. If you buy, plan to be out or smaller before Dec 9."
   },
   {
    "t": "AMD",
@@ -200,8 +200,8 @@
    "cur": "USD",
    "halal": 2,
    "halalNote": "Passes FTSE Shariah screen",
-   "price": 504.28,
-   "asOf": "Nov 16",
+   "price": 503.41,
+   "asOf": "Nov 17",
    "low52": 188.22,
    "high52": 658.52,
    "pe": 115.8,
@@ -212,11 +212,11 @@
    "signal": "hold",
    "sum": "Strong business, but the wildest stock on this list.",
    "why": [
-    "Record quarter on Nov 3 and gaining ground on Nvidia."
+    "Record quarter on Nov 3, and it rose about 3% before Wednesday's open after Nvidia's results."
    ],
    "risk": [
-    "It fell almost 9% on Friday and almost 6% more on Monday. It moves two and a half times as much as the market.",
-    "Singapore was about 12% of its sales last year, so the new US licence rules for Southeast Asia are a direct risk.",
+    "It moves two and a half times as much as the market, and it fell almost 9% on Friday and almost 6% on Monday before steadying Tuesday.",
+    "Singapore was about 12% of its sales last year, so the new US licence rules for Southeast Asia, starting Thursday, are a direct risk.",
     "Very expensive against current profits, so bad news hits it hard."
    ],
    "todo": "Skip it for now. A normal stop can't protect you well on a stock that swings this much."
@@ -229,8 +229,8 @@
    "cur": "USD",
    "halal": 2,
    "halalNote": "Passes S&P Shariah screen",
-   "price": 373.45,
-   "asOf": "Nov 16",
+   "price": 359.69,
+   "asOf": "Nov 17",
    "low52": 266.82,
    "high52": 487.47,
    "pe": 26.9,
@@ -241,14 +241,14 @@
    "signal": "wait",
    "sum": "Makes the chips for nearly every AI company, so it wins whoever leads.",
    "why": [
-    "About 23% below its high, and it just reported a record month of sales.",
-    "It makes chips for nearly every AI company, so it is less tied to who leads Nvidia."
+    "About 26% below its high, and it just reported a record month of sales.",
+    "Nvidia's strong forecast is good news for TSMC, since it makes Nvidia's chips."
    ],
    "risk": [
-    "It fell about 6% on Monday and nearly 10% in three days. Taiwan's market had one of its worst days on record.",
-    "Taiwan and US-China politics are a standing risk, and Trump is in China this week. The new US chip rule adds more noise."
+    "It fell another 3.7% on Tuesday, its fourth drop in a row.",
+    "Taiwan and US-China politics are a standing risk, and the new US chip rules start Thursday."
    ],
-   "todo": "Wait for Nvidia's results and the China trip headlines, then consider one share."
+   "todo": "Wait until the chip rules take effect and the price stops falling, then consider one share."
   },
   {
    "t": "MSFT",
@@ -258,8 +258,8 @@
    "cur": "USD",
    "halal": 2,
    "halalNote": "Held in SPUS (S&P Shariah screen)",
-   "price": 517.99,
-   "asOf": "Nov 16",
+   "price": 506.24,
+   "asOf": "Nov 17",
    "low52": 349.2,
    "high52": 559.15,
    "pe": 27.4,
@@ -267,19 +267,19 @@
    "earn": null,
    "target": 636.12,
    "stop": 7,
-   "signal": "buy",
-   "sum": "The steady one. It held up through the whole chip selloff.",
+   "signal": "wait",
+   "sum": "The steady one in tech, but software stocks are under pressure this week.",
    "why": [
-    "Only about 7% below its high while chip stocks fell much harder. It lost just 1% on Monday.",
+    "About 9% below its high, a smaller drop than most of tech.",
     "Moves about the same as the market, so the stop can be tighter.",
     "Its own earnings are already out, so no company surprise is due soon."
    ],
    "risk": [
-    "One share is about $735 CAD, a big piece of a small account.",
-    "Microsoft traced last week's outage to a software bug and rolled it back. A final report is due Nov 20.",
-    "It is still a tech stock, so Nvidia's results tonight can pull it around for a day or two."
+    "It fell 2.3% on Tuesday as software stocks sold off on fears that AI tools will replace some software. That is its second down day in a row.",
+    "Microsoft's final report on last week's outage is due Nov 20.",
+    "One share is about $720 CAD, a big piece of a small account."
    ],
-   "todo": "A fair buy for one share. Use a limit order a little under the last price, or wait until Wednesday if this week's news makes you uneasy."
+   "todo": "Changed from buy to wait. Let the software selloff and Friday's outage report pass. If it steadies next week, a limit order for one share is fair."
   },
   {
    "t": "GOOGL",
@@ -289,8 +289,8 @@
    "cur": "USD",
    "halal": 2,
    "halalNote": "Held in SPUS (S&P Shariah screen)",
-   "price": 285.36,
-   "asOf": "Nov 16",
+   "price": 280.2,
+   "asOf": "Nov 17",
    "low52": 270.7,
    "high52": 408.61,
    "pe": 15.4,
@@ -299,18 +299,18 @@
    "target": 400.37,
    "stop": 8,
    "signal": "wait",
-   "sum": "The cheapest big tech name against its profits, about 30% below its high.",
+   "sum": "The cheapest big tech name against its profits, about 31% below its high.",
    "why": [
     "Its price-to-earnings is near 15, which is low for a big tech company. That means you pay less for each dollar of profit.",
     "Its income comes from ads and cloud, so it depends less on chip spending.",
     "Its own earnings are already out."
    ],
    "risk": [
-    "It fell 3.5% on Monday after news it will buy about $10 billion of Anthropic shares in the IPO, plus worries about heavy AI spending.",
-    "Anthropic starts trading Thursday. A strong or weak debut could move Alphabet too.",
-    "It sits only about 5% above its 52-week low. Cheap stocks can get cheaper."
+    "It fell another 1.2% on Tuesday. It plans to buy about $10 billion of Anthropic shares alongside the IPO, and investors worry about heavy AI spending.",
+    "Anthropic prices tonight and starts trading Thursday. A strong or weak debut could move Alphabet too.",
+    "It sits only about 3.5% above its 52-week low. Cheap stocks can get cheaper."
    ],
-   "todo": "Hold off a few days. Let Nvidia's results and the Anthropic debut pass, then look at buying one share."
+   "todo": "Let the Anthropic debut pass on Thursday, then look at buying one share if the price holds above its low."
   },
   {
    "t": "AAPL",
@@ -320,8 +320,8 @@
    "cur": "USD",
    "halal": 2,
    "halalNote": "Held in SPUS (S&P Shariah screen)",
-   "price": 352.78,
-   "asOf": "Nov 16",
+   "price": 351.91,
+   "asOf": "Nov 17",
    "low52": 243.42,
    "high52": 360.83,
    "pe": 39.7,
@@ -332,10 +332,10 @@
    "signal": "hold",
    "sum": "A safe haven lately, but priced at the top.",
    "why": [
-    "Investors moved into Apple while chips fell. It slipped only 1% on Monday."
+    "Investors moved into Apple while chips fell. It barely moved on Tuesday."
    ],
    "risk": [
-    "It sits about 2% below its all-time high and already above analysts' average target.",
+    "It sits about 2.5% below its all-time high and above analysts' average target.",
     "Pricey against profits, so there is little room left for a few-month trade."
    ],
    "todo": "Hold off. Put it on your list for a pullback of 8% or more."
@@ -348,8 +348,8 @@
    "cur": "USD",
    "halal": 2,
    "halalNote": "Held in SPUS (S&P Shariah screen)",
-   "price": 379.74,
-   "asOf": "Nov 16",
+   "price": 380.11,
+   "asOf": "Nov 17",
    "low52": 297.38,
    "high52": 498.83,
    "pe": 428.7,
@@ -364,7 +364,7 @@
    ],
    "risk": [
     "Extremely expensive against its profits.",
-    "It swings on headlines. Musk is in China this week, there is talk of a SpaceX merger, and its China sales fell sharply in October."
+    "It swings on headlines, like talk of a SpaceX merger and weak China sales in October."
    ],
    "todo": "Skip for a planned, rule-based trade. Too unpredictable."
   },
@@ -376,8 +376,8 @@
    "cur": "USD",
    "halal": 1,
    "halalNote": "Screeners disagree. Check before buying",
-   "price": 626.41,
-   "asOf": "Nov 16",
+   "price": 618.87,
+   "asOf": "Nov 17",
    "low52": 520.26,
    "high52": 779.82,
    "pe": 21.9,
@@ -386,16 +386,16 @@
    "target": 833.12,
    "stop": 9,
    "signal": "wait",
-   "sum": "Reasonably priced and about 20% below its high, but the halal status needs your own check.",
+   "sum": "Reasonably priced and about 21% below its high, but the halal status needs your own check.",
    "why": [
     "Fair price against profits, and analysts' target is well above today's price."
    ],
    "risk": [
     "Halal screeners do not all agree on Meta. Check Zoya or Musaffa first.",
-    "Italy's privacy watchdog fined it about 805 million euros, and it is borrowing heavily to pay for AI.",
-    "Like all big tech, it will react to Nvidia's results tonight."
+    "It fell 1.2% on Tuesday and is borrowing heavily to pay for AI. Italy's privacy watchdog also fined it about 805 million euros.",
+    "The Anthropic IPO this week could shift money around in big tech."
    ],
-   "todo": "Settle the halal question first. If it passes for you, look again after Nvidia reports."
+   "todo": "Settle the halal question first. If it passes for you, look again after the Anthropic debut."
   },
   {
    "t": "LLY",
@@ -405,8 +405,8 @@
    "cur": "USD",
    "halal": 2,
    "halalNote": "Held in SPUS (S&P Shariah screen)",
-   "price": 1432.43,
-   "asOf": "Nov 16",
+   "price": 1415.55,
+   "asOf": "Nov 17",
    "low52": 850.51,
    "high52": 1460.0,
    "pe": 46.9,
@@ -415,16 +415,17 @@
    "target": 1463.4,
    "stop": 7,
    "signal": "hold",
-   "sum": "The weight-loss drug leader, sitting about 2% below a record high.",
+   "sum": "The weight-loss drug leader, about 3% below a record high.",
    "why": [
     "Not a tech stock, so it spreads your risk.",
-    "It barely moves with the market, and it just agreed to buy a small cancer drug company."
+    "It barely moves with the market."
    ],
    "risk": [
-    "Near its high and right at analysts' average target, so the easy gains are behind it.",
-    "One share costs about $2,030 CAD."
+    "Near its high and close to analysts' average target, so the easy gains are behind it.",
+    "Health stocks slid Tuesday on proposed Medicare and Medicaid rules. It fell 1.1%.",
+    "One share costs about $2,010 CAD."
    ],
-   "todo": "Hold off. Too big for one share on a $10,000 account, and no discount."
+   "todo": "Hold off. Too big for one share on a $10,000 account, and no real discount."
   },
   {
    "t": "JNJ",
@@ -434,8 +435,8 @@
    "cur": "USD",
    "halal": 2,
    "halalNote": "Held in SPUS (S&P Shariah screen)",
-   "price": 282.55,
-   "asOf": "Nov 16",
+   "price": 278.83,
+   "asOf": "Nov 17",
    "low52": 193.45,
    "high52": 288.11,
    "pe": 43.4,
@@ -449,8 +450,8 @@
     "Very calm. It hardly reacts to market drops."
    ],
    "risk": [
-    "About 2% below its high and above analysts' average target, so you would be buying after the run.",
-    "Ongoing talc lawsuits, and an insider sold shares this week."
+    "About 3% below its high and right at analysts' average target, so you would be buying after the run.",
+    "It fell about 1.4% Tuesday with other health stocks, and the talc lawsuits are still ongoing."
    ],
    "todo": "Hold off. Good company, wrong price for a new trade."
   },
@@ -462,8 +463,8 @@
    "cur": "USD",
    "halal": 2,
    "halalNote": "Typically passes Shariah screens. Check before buying",
-   "price": 108.51,
-   "asOf": "Nov 13",
+   "price": 104.71,
+   "asOf": "Nov 17",
    "low52": 81.97,
    "high52": 132.03,
    "pe": 39.5,
@@ -471,18 +472,18 @@
    "earn": null,
    "target": 118.91,
    "stop": 6,
-   "signal": "buy",
-   "sum": "A calm health care name still about 18% below its high.",
+   "signal": "wait",
+   "sum": "A calm health care name about 21% below its high, but it slipped this week.",
    "why": [
     "A discount without tech's wild swings.",
-    "Steady product news: a new heart device lead won US approval and it launched a COVID and flu home test in Canada.",
+    "Steady product news, like a new heart device lead approved in the US.",
     "A low share price means you can buy several shares and size the trade exactly."
    ],
    "risk": [
-    "The price shown is Friday's close. I could not confirm Monday's, so check today's price first.",
+    "It fell 2.5% on Tuesday, when health care was one of the weakest groups after the US proposed new Medicare and Medicaid anti-fraud rules.",
     "Health stocks can stay out of favour for a long time."
    ],
-   "todo": "A good non-tech pick. Confirm the price and the halal status, then buy in one go."
+   "todo": "Changed from buy to wait. Give health stocks a few days to settle after the new rule news, then buy in one go if the price steadies."
   },
   {
    "t": "PG",
@@ -492,10 +493,10 @@
    "cur": "USD",
    "halal": 2,
    "halalNote": "Typically passes Shariah screens. Check before buying",
-   "price": 169.8,
-   "asOf": "Nov 13",
+   "price": 171.72,
+   "asOf": "Nov 17",
    "low52": 137.62,
-   "high52": 170.52,
+   "high52": 173.02,
    "pe": 25.6,
    "beta": 0.36,
    "earn": null,
@@ -507,9 +508,8 @@
     "People buy its products in any economy, and it just raised its dividend for the 70th year in a row."
    ],
    "risk": [
-    "Less than 1% below its high as of Friday.",
-    "Its investor day is Thursday, Nov 19, which can move the price.",
-    "I could not confirm Monday's close, so the price shown is Friday's."
+    "It closed at a new high of about $173 on Monday and is less than 1% below it now.",
+    "Its investor day is Thursday, Nov 19, which can move the price."
    ],
    "todo": "Hold off. Useful as a safe corner later, not as a profit trade now."
   },
@@ -521,8 +521,8 @@
    "cur": "USD",
    "halal": 2,
    "halalNote": "Typically passes Shariah screens. Check before buying",
-   "price": 347.51,
-   "asOf": "Nov 16",
+   "price": 339.01,
+   "asOf": "Nov 17",
    "low52": 277.15,
    "high52": 397.63,
    "pe": 23.0,
@@ -531,17 +531,17 @@
    "target": 375.0,
    "stop": 7,
    "signal": "wait",
-   "sum": "Beat forecasts this morning and named a new CEO, but the stock slipped before the open.",
+   "sum": "Beat forecasts on Tuesday and named a new CEO, but the stock fell 2.5%.",
    "why": [
-    "Sales and profit came in a little above forecasts, and it kept its full-year plan near the top of its range.",
+    "Sales and profit came in a little above forecasts, and it kept its full-year plan.",
     "Fair price against profits, and older US homes need repairs."
    ],
    "risk": [
-    "Shares were down about 2% before the open, near $339. Fewer shoppers came in, even though each one spent more.",
+    "Fewer shoppers came in, even though each one spent more. Lowe's also reports today, which can move it.",
     "The finance chief, Richard McPhail, takes over as CEO on Nov 23. Leadership changes can bring new plans and surprises.",
-    "High interest rates slow home sales and big renovation jobs, and rates are going up."
+    "High interest rates slow home sales and big renovation jobs, and a December rate hike looks likely."
    ],
-   "todo": "Earnings are done, but let the price settle for a few days and watch how it reacts to rates and Nvidia before buying."
+   "todo": "Let the price settle for a few days after earnings and Lowe's results before buying."
   },
   {
    "t": "LIN",
@@ -551,8 +551,8 @@
    "cur": "USD",
    "halal": 2,
    "halalNote": "Typically passes Shariah screens. Check before buying",
-   "price": 523.46,
-   "asOf": "Nov 16",
+   "price": 515.11,
+   "asOf": "Nov 17",
    "low52": 387.78,
    "high52": 548.2,
    "pe": 34.2,
@@ -563,20 +563,20 @@
    "signal": "buy",
    "sum": "Sells gases that factories and hospitals need every day. Quiet and steady.",
    "why": [
-    "About 5% below its high and calmer than the market.",
+    "About 6% below its high and calmer than the market.",
     "It has raised its dividend for decades, which signals a stable business.",
     "Nothing to do with the AI trade, so it spreads your risk."
    ],
    "risk": [
-    "One share is about $745 CAD.",
-    "The gap to analysts' target is small, so expect slow gains."
+    "It fell 1.6% on Tuesday with the broad market, so it is not immune to selloffs.",
+    "One share is about $730 CAD, and the gap to analysts' target is small, so expect slow gains."
    ],
-   "todo": "A fair buy for one share if you want something outside tech. Use a limit order."
+   "todo": "A fair buy for one share if you want something outside tech. Use a limit order a little under the last price."
   }
  ],
  "sources": [
-  "Prices: Motley Fool, StockTitan, StockAlarm, INDmoney, Financefeeds, TradingNews, Moomoo, MarketScreener, HeyGotrade and Quiver Quant for Nov 13 to 16 closes. Ranges and targets from stockanalysis.com where no fresher source was found",
-  "Market news: BNN Bloomberg, TipRanks, CNN, Motley Fool, Home Depot's Nov 17 release and Broadcom's investor relations, Nov 16 to 17, 2026",
+  "Prices: Nov 17 closes from StockAlarm, MarketChameleon (SPSK), FXEmpire (SMH), TipRanks and Fox Business (JNJ). WSHR range from Wealthsimple. Targets and P/E carried from the last update",
+  "Market news: Motley Fool, StockTitan, Yahoo Finance, Reuters via KFGO, Capp Notes, Nov 17 to 18, 2026",
   "Halal status: fund certificates, S&P and FTSE Shariah index holdings, Musaffa"
  ]
 }
